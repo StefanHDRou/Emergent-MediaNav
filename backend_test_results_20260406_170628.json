@@ -1,0 +1,457 @@
+{
+  "timestamp": "20260406_170628",
+  "summary": {
+    "tests_run": 7,
+    "tests_passed": 7,
+    "success_rate": 100.0
+  },
+  "test_results": [
+    {
+      "test_name": "Health Check",
+      "endpoint": "api/health",
+      "status_code": 200,
+      "expected_status": 200,
+      "success": true,
+      "content_errors": [],
+      "response_size": 56,
+      "response_data": {
+        "status": "healthy",
+        "project": "MN1 Android Auto Client"
+      }
+    },
+    {
+      "test_name": "Project File Tree",
+      "endpoint": "api/project/tree",
+      "status_code": 200,
+      "expected_status": 200,
+      "success": true,
+      "content_errors": [],
+      "response_size": 4786,
+      "response_data": {
+        "files": [
+          {
+            "path": "README.md",
+            "name": "README.md",
+            "size": 6033,
+            "lang": "markdown",
+            "is_doc": true,
+            "is_source": false
+          },
+          {
+            "path": "companion-app/README.md",
+            "name": "README.md",
+            "size": 4264,
+            "lang": "markdown",
+            "is_doc": true,
+            "is_source": false
+          },
+          {
+            "path": "docs/01_TOOLCHAIN_SETUP.md",
+            "name": "01_TOOLCHAIN_SETUP.md",
+            "size": 6009,
+            "lang": "markdown",
+            "is_doc": true,
+            "is_source": false
+          },
+          {
+            "path": "docs/02_ARCHITECTURE.md",
+            "name": "02_ARCHITECTURE.md",
+            "size": 7921,
+            "lang": "markdown",
+            "is_doc": true,
+            "is_source": false
+          },
+          {
+            "path": "docs/03_PERFORMANCE_ANALYSIS.md",
+            "name": "03_PERFORMANCE_ANALYSIS.md",
+            "size": 8718,
+            "lang": "markdown",
+            "is_doc": true,
+            "is_source": false
+          },
+          {
+            "path": "docs/04_TOUCH_INPUT.md",
+            "name": "04_TOUCH_INPUT.md",
+            "size": 5395,
+            "lang": "markdown",
+            "is_doc": true,
+            "is_source": false
+          },
+          {
+            "path": "src/Makefile",
+            "name": "Makefile",
+            "size": 6253,
+            "lang": "text",
+            "is_doc": false,
+            "is_source": false
+          },
+          {
+            "path": "src/config.h",
+            "name": "config.h",
+            "size": 11086,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/main.c",
+            "name": "main.c",
+            "size": 14190,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/types.h",
+            "name": "types.h",
+            "size": 6825,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/display/display.h",
+            "name": "display.h",
+            "size": 1722,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/display/display_ddraw.c",
+            "name": "display_ddraw.c",
+            "size": 12577,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/display/display_gdi.c",
+            "name": "display_gdi.c",
+            "size": 303,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/input/touch_input.c",
+            "name": "touch_input.c",
+            "size": 5611,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/input/touch_input.h",
+            "name": "touch_input.h",
+            "size": 1593,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/protocol/aap_framing.c",
+            "name": "aap_framing.c",
+            "size": 6542,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/protocol/aap_framing.h",
+            "name": "aap_framing.h",
+            "size": 2410,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/protocol/aap_service.c",
+            "name": "aap_service.c",
+            "size": 915,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/protocol/aap_service.h",
+            "name": "aap_service.h",
+            "size": 510,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/protocol/custom_protocol.c",
+            "name": "custom_protocol.c",
+            "size": 5239,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/protocol/custom_protocol.h",
+            "name": "custom_protocol.h",
+            "size": 2756,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/protocol/pb_lite.c",
+            "name": "pb_lite.c",
+            "size": 2287,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/protocol/pb_lite.h",
+            "name": "pb_lite.h",
+            "size": 1231,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/tls/tls_minimal.c",
+            "name": "tls_minimal.c",
+            "size": 673,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/tls/tls_minimal.h",
+            "name": "tls_minimal.h",
+            "size": 281,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/usb/aoa_handshake.c",
+            "name": "aoa_handshake.c",
+            "size": 9624,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/usb/aoa_handshake.h",
+            "name": "aoa_handshake.h",
+            "size": 2736,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/usb/usb_host.c",
+            "name": "usb_host.c",
+            "size": 15973,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/usb/usb_host.h",
+            "name": "usb_host.h",
+            "size": 6163,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/util/debug_log.c",
+            "name": "debug_log.c",
+            "size": 2059,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/util/debug_log.h",
+            "name": "debug_log.h",
+            "size": 895,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/util/ring_buffer.c",
+            "name": "ring_buffer.c",
+            "size": 3091,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/util/ring_buffer.h",
+            "name": "ring_buffer.h",
+            "size": 1569,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/video/color_convert.c",
+            "name": "color_convert.c",
+            "size": 8299,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/video/color_convert.h",
+            "name": "color_convert.h",
+            "size": 1036,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/video/jpeg_huffman.c",
+            "name": "jpeg_huffman.c",
+            "size": 6274,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/video/jpeg_huffman.h",
+            "name": "jpeg_huffman.h",
+            "size": 1609,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/video/jpeg_idct_mips.c",
+            "name": "jpeg_idct_mips.c",
+            "size": 5834,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/video/jpeg_idct_mips.h",
+            "name": "jpeg_idct_mips.h",
+            "size": 766,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/video/mjpeg_decoder.c",
+            "name": "mjpeg_decoder.c",
+            "size": 21817,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "src/video/mjpeg_decoder.h",
+            "name": "mjpeg_decoder.h",
+            "size": 4546,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          },
+          {
+            "path": "tools/usb_test.c",
+            "name": "usb_test.c",
+            "size": 5950,
+            "lang": "c",
+            "is_doc": false,
+            "is_source": true
+          }
+        ],
+        "total_files": 42
+      }
+    },
+    {
+      "test_name": "Project Statistics",
+      "endpoint": "api/project/stats",
+      "status_code": 200,
+      "expected_status": 200,
+      "success": true,
+      "content_errors": [],
+      "response_size": 103,
+      "response_data": {
+        "total_lines": 6966,
+        "total_bytes": 219585,
+        "file_counts": {
+          ".md": 6,
+          ".c": 18,
+          ".h": 17,
+          "": 1
+        },
+        "total_files": 42
+      }
+    },
+    {
+      "test_name": "File Content - Project README",
+      "endpoint": "api/project/file?path=README.md",
+      "status_code": 200,
+      "expected_status": 200,
+      "success": true,
+      "content_errors": [],
+      "response_size": 6263,
+      "response_data": {
+        "path": "README.md",
+        "content": "# MediaNav Android Auto Client (MN1-AA)\n\n## A Custom, Lightweight Android Auto Client for Renault/Dacia MediaNav Standard (MN1)\n\n**Target:** Windows CE 6.0 | MIPS (Alchemy Au1320 @ 667MHz) | 256MB RAM | No HW Video Decode\n\n---\n\n## BRUTAL HONESTY UPFRONT\n\nBefore you read another line, here is the cold, hard truth about this project:\n\n### The H.264 Problem\nAndroid Auto Protocol (AAP) **only supports H.264 Baseline, VP9, AV1, and H.265** as video codecs.\nThere is **NO MJPEG option** in the protocol. The `MediaCodecType` enum from the AAP protobuf spec is:\n\n```\nMEDIA_CODEC_VIDEO_H264_BP = 3;\nMEDIA_CODEC_VIDEO_VP9     = 5;\nMEDIA_CODEC_VIDEO_AV1     = 6;\nMEDIA_CODEC_VIDEO_H265    = 7;\n```\n\nSoftware-decoding H.264 Baseline at 800x480@30fps on a 667MHz in-order MIPS core with\n16KB I-cache and 16KB D-cache is **effectively impossible at usable framerates**. Expect\n2-5 FPS at best. This is Dead On Arrival (DOA) for standard AAP video.\n\n### The Solution: Dual-Path Architecture\n\nThis project implements **two paths**:\n\n| Path | Protocol | Video Codec | Feasibility | FPS Target |\n|------|----------|-------------|-------------|------------|\n| **Path A: Standard AAP** | Full AAP over USB AOA | H.264 BP (software ffh264) | DOA: ~2-5 FPS | Slideshow |\n| **Path B: Companion MJPEG** | Custom protocol over USB AOA | MJPEG (optimized libjpeg) | **VIABLE**: 12-20 FPS | Usable |\n\n**Path B** is the recommended approach. It uses a custom Android companion app that:\n1. Captures the Android Auto UI on the phone via MediaProjection API\n2. Encodes frames as JPEG at configurable quality (Q40-Q60)\n3. Streams over USB using a lightweight custom framing protocol\n4. The MN1 decodes MJPEG and renders via DirectDraw/GDI\n\nThis sacrifices full AAP compliance for **actually working video** on this hardware.\n\n---\n\n## Documentation Index\n\n| Document | Description |\n|----------|-------------|\n| [01 - Toolchain Setup](docs/01_TOOLCHAIN_SETUP.md) | Setting up VS2005 + Platform Builder for MIPS WinCE 6.0 |\n| [02 - Architecture](docs/02_ARCHITECTURE.md) | Full software architecture, data flow, thread model |\n| [03 - Performance Analysis](docs/03_PERFORMANCE_ANALYSIS.md) | Memory budgets, CPU cycle analysis, bottleneck map |\n| [04 - Touch Input](docs/04_TOUCH_INPUT.md) | Touch screen routing back to phone via AOA/custom protocol |\n\n## Project Structure\n\n```\nmedianav-aa-client/\n|-- README.md                          # This file\n|-- docs/\n|   |-- 01_TOOLCHAIN_SETUP.md         # Toolchain & SDK guide\n|   |-- 02_ARCHITECTURE.md            # Software architecture\n|   |-- 03_PERFORMANCE_ANALYSIS.md    # Performance & memory analysis\n|   |-- 04_TOUCH_INPUT.md             # Touch input routing\n|\n|-- src/\n|   |-- Makefile                       # Build system (VS2005 NMAKE)\n|   |-- config.h                       # Build-time configuration\n|   |-- types.h                        # Common type definitions\n|   |\n|   |-- usb/\n|   |   |-- usb_host.h                 # WinCE USB Host abstraction\n|   |   |-- usb_host.c                 # USB Host driver interface\n|   |   |-- aoa_handshake.h            # AOA protocol handshake\n|   |   |-- aoa_handshake.c            # AOA implementation\n|   |\n|   |-- protocol/\n|   |   |-- aap_framing.h             # AAP frame header encode/decode\n|   |   |-- aap_framing.c\n|   |   |-- aap_service.h             # Service discovery & channel mgmt\n|   |   |-- aap_service.c\n|   |   |-- pb_lite.h                 # Minimal protobuf encoder/decoder\n|   |   |-- pb_lite.c                 # (no external deps, hand-rolled)\n|   |   |-- custom_protocol.h         # Custom MJPEG streaming protocol\n|   |   |-- custom_protocol.c\n|   |\n|   |-- video/\n|   |   |-- mjpeg_decoder.h           # MJPEG decoder interface\n|   |   |-- mjpeg_decoder.c           # Hyper-optimized MIPS MJPEG decode\n|   |   |-- jpeg_idct_mips.h          # MIPS-optimized IDCT\n|   |   |-- jpeg_idct_mips.c          # 16-bit fixed-point IDCT\n|   |   |-- jpeg_huffman.h            # Optimized Huffman decoder\n|   |   |-- jpeg_huffman.c\n|   |   |-- color_convert.h           # YCbCr -> RGB565 fast conversion\n|   |   |-- color_convert.c\n|   |\n|   |-- display/\n|   |   |-- display.h                 # Display output abstraction\n|   |   |-- display_ddraw.c           # DirectDraw rendering path\n|   |   |-- display_gdi.c             # GDI fallback rendering path\n|   |\n|   |-- input/\n|   |   |-- touch_input.h             # Touch screen input handler\n|   |   |-- touch_input.c             # WinCE touch -> protocol routing\n|   |\n|   |-- tls/\n|   |   |-- tls_minimal.h             # Minimal TLS 1.2 wrapper\n|   |   |-- tls_minimal.c             # For AAP encrypted channels\n|   |\n|   |-- util/\n|   |   |-- ring_buffer.h             # Lock-free ring buffer\n|   |   |-- ring_buffer.c\n|   |   |-- debug_log.h               # Debug logging (serial/file)\n|   |   |-- debug_log.c\n|   |\n|   |-- main.c                        # Application entry point\n|\n|-- companion-app/\n|   |-- README.md                      # Android companion app concept\n|\n|-- tools/\n|   |-- usb_test.c                     # USB connectivity test tool\n```\n\n## Quick Start (After Toolchain Setup)\n\n```batch\nREM Open VS2005 Command Prompt with MediaNav MIPS SDK\nREM Navigate to src/ directory\n\nnmake /f Makefile CFG=RELEASE\n\nREM Copy mn1aa.exe to USB stick (FAT32)\nREM On MediaNav: Enter Test Mode -> Run via Total Commander\n```\n\n## Hardware Reference\n\n| Component | Specification |\n|-----------|---------------|\n| Processor | Alchemy Au1320, 667 MHz, MIPS32 |\n| Pipeline | 5-stage in-order, single-issue |\n| I-Cache | 16 KB, 4-way set-associative |\n| D-Cache | 16 KB, 4-way write-back, read-allocate |\n| RAM | 256 MB DDR2-667 (16-bit bus) |\n| USB | USB 2.0 + OTG |\n| Display | 800x480 TFT (assumed) |\n| Touch | Resistive (assumed) |\n| GPU/VPU | **NONE** - No hardware video acceleration confirmed |\n\n## License\n\nThis project is provided for educational and research purposes. Android Auto is a trademark\nof Google LLC. Use at your own risk - modifying your MediaNav may void your warranty.\n",
+        "lang": "markdown",
+        "size": 6033,
+        "lines": 156
+      }
+    },
+    {
+      "test_name": "File Content - C Header File",
+      "endpoint": "api/project/file?path=src/config.h",
+      "status_code": 200,
+      "expected_status": 200,
+      "success": true,
+      "content_errors": [],
+      "response_size": 11480,
+      "response_data": {
+        "path": "src/config.h",
+        "content": "/*\n * config.h - Build-time Configuration for MN1 Android Auto Client\n *\n * Target: Renault/Dacia MediaNav MN1\n *         Windows CE 6.0 / MIPS (Alchemy Au1320 @ 667MHz)\n *\n * CRITICAL: Every byte and every cycle counts on this platform.\n *           All values here are tuned for the Au1320's constraints:\n *           - 16KB I-cache / 16KB D-cache (4-way set-associative)\n *           - 256MB DDR2-667 (16-bit bus = ~1.3 GB/s peak bandwidth)\n *           - No SIMD, no FPU worth using, no HW video decode\n */\n\n#ifndef MN1AA_CONFIG_H\n#define MN1AA_CONFIG_H\n\n/* =========================================================================\n * OPERATING MODE\n * ========================================================================= */\n\n/*\n * MN1_MODE_AAP_STANDARD:\n *   Full Android Auto Protocol. Receives H.264 Baseline from phone.\n *   REALITY CHECK: Expect 2-5 FPS on this CPU. Unusable for driving.\n *   Enable only for protocol testing/development.\n *\n * MN1_MODE_COMPANION_MJPEG:\n *   Custom companion protocol. Android app captures screen, encodes\n *   as JPEG, streams over USB. MN1 decodes MJPEG.\n *   TARGET: 12-20 FPS at 800x480 Q50. This is the viable path.\n */\n#define MN1_MODE_COMPANION_MJPEG    1\n#define MN1_MODE_AAP_STANDARD       2\n\n#ifndef MN1_OPERATING_MODE\n#define MN1_OPERATING_MODE          MN1_MODE_COMPANION_MJPEG\n#endif\n\n/* =========================================================================\n * DISPLAY CONFIGURATION\n * ========================================================================= */\n\n#define MN1_DISPLAY_WIDTH           800\n#define MN1_DISPLAY_HEIGHT          480\n\n/*\n * Pixel format: RGB565 (16-bit) is the only sane choice.\n * RGB888 would double memory bandwidth requirements.\n * Each frame = 800 * 480 * 2 = 768,000 bytes = 750 KB\n */\n#define MN1_PIXEL_FORMAT_RGB565     1\n#define MN1_BYTES_PER_PIXEL         2\n#define MN1_FRAME_SIZE_BYTES        (MN1_DISPLAY_WIDTH * MN1_DISPLAY_HEIGHT * MN1_BYTES_PER_PIXEL)\n\n/*\n * Display backend selection (compile-time):\n *   DDRAW  - DirectDraw (preferred: hardware blit if available)\n *   GDI    - GDI with StretchDIBits (fallback: always works)\n */\n#define MN1_DISPLAY_DDRAW           1\n#define MN1_DISPLAY_GDI             2\n\n#ifndef MN1_DISPLAY_BACKEND\n#define MN1_DISPLAY_BACKEND         MN1_DISPLAY_DDRAW\n#endif\n\n/* =========================================================================\n * VIDEO DECODE CONFIGURATION (MJPEG PATH)\n * ========================================================================= */\n\n/*\n * JPEG quality the companion app should encode at.\n * Lower = faster decode, less bandwidth, worse quality.\n *\n * Q30: ~15 KB/frame, very blocky but fast\n * Q50: ~25 KB/frame, acceptable quality (RECOMMENDED)\n * Q70: ~45 KB/frame, good quality but pushes bandwidth\n *\n * At 800x480 Q50 @ 15 FPS: ~375 KB/s = ~3 Mbit/s\n * USB 2.0 High Speed: 480 Mbit/s theoretical, ~35 MB/s real\n * Bandwidth is NOT the bottleneck. CPU decode time IS.\n */\n#define MN1_JPEG_DEFAULT_QUALITY    50\n\n/*\n * Decode resolution. Can be lower than display for speed,\n * then upscaled via nearest-neighbor blit.\n *\n * FULL:    800x480 decode (1:1 with display)\n * HALF:    400x240 decode, 2x upscale (4x fewer pixels to decode)\n * QUARTER: 200x120 decode, 4x upscale (16x fewer pixels, very blocky)\n */\n#define MN1_DECODE_FULL             1\n#define MN1_DECODE_HALF             2\n#define MN1_DECODE_QUARTER          3\n\n#ifndef MN1_DECODE_RESOLUTION\n#define MN1_DECODE_RESOLUTION       MN1_DECODE_HALF\n#endif\n\n#if MN1_DECODE_RESOLUTION == MN1_DECODE_FULL\n  #define MN1_DECODE_WIDTH          800\n  #define MN1_DECODE_HEIGHT         480\n  #define MN1_DECODE_SCALE          1\n#elif MN1_DECODE_RESOLUTION == MN1_DECODE_HALF\n  #define MN1_DECODE_WIDTH          400\n  #define MN1_DECODE_HEIGHT         240\n  #define MN1_DECODE_SCALE          2\n#elif MN1_DECODE_RESOLUTION == MN1_DECODE_QUARTER\n  #define MN1_DECODE_WIDTH          200\n  #define MN1_DECODE_HEIGHT         120\n  #define MN1_DECODE_SCALE          4\n#endif\n\n/*\n * IDCT precision:\n *   ISLOW: 16-bit integer slow IDCT (accurate, ~40% of decode time)\n *   IFAST: 16-bit integer fast IDCT (less accurate, ~25% of decode time)\n *\n * IFAST introduces visible artifacts but saves significant CPU.\n * For a car dashboard at arm's length, IFAST is acceptable.\n */\n#define MN1_IDCT_ISLOW              1\n#define MN1_IDCT_IFAST              2\n\n#ifndef MN1_IDCT_METHOD\n#define MN1_IDCT_METHOD             MN1_IDCT_IFAST\n#endif\n\n/* =========================================================================\n * USB CONFIGURATION\n * ========================================================================= */\n\n/*\n * USB buffer sizes. Tuned for the Au1320's USB 2.0 controller.\n *\n * The USB controller on Au1320 supports USB 2.0 High Speed (480 Mbit/s).\n * Bulk endpoint max packet size: 512 bytes (HS).\n *\n * RX buffer: Should be multiple of 512 and large enough to hold\n * at least one JPEG frame to avoid USB stalls during decode.\n *\n * Double-buffering: While one buffer is being decoded, the other\n * receives the next frame from USB.\n */\n#define MN1_USB_RX_BUFFER_SIZE      (64 * 1024)   /* 64 KB per buffer */\n#define MN1_USB_TX_BUFFER_SIZE      (4  * 1024)    /* 4 KB (touch events are small) */\n#define MN1_USB_NUM_RX_BUFFERS      2              /* Double-buffer */\n\n/* USB Vendor/Product IDs for AOA */\n#define MN1_USB_GOOGLE_VID          0x18D1\n#define MN1_USB_AOA_PID             0x2D00\n#define MN1_USB_AOA_ADB_PID        0x2D01\n\n/* AOA control request codes */\n#define MN1_AOA_GET_PROTOCOL        51\n#define MN1_AOA_SEND_STRING         52\n#define MN1_AOA_START               53\n\n/* AOA string indices */\n#define MN1_AOA_STR_MANUFACTURER    0\n#define MN1_AOA_STR_MODEL           1\n#define MN1_AOA_STR_DESCRIPTION     2\n#define MN1_AOA_STR_VERSION         3\n#define MN1_AOA_STR_URI             4\n#define MN1_AOA_STR_SERIAL          5\n\n/* =========================================================================\n * AAP PROTOCOL CONFIGURATION (Path A - Standard AAP)\n * ========================================================================= */\n\n/*\n * AAP frame header format:\n *   [Channel 1B] [Flags 1B] [FrameLen 2B BE] [TotalLen 4B BE if first]\n *\n * Max frame payload: 0x4000 (16384 bytes)\n */\n#define MN1_AAP_MAX_FRAME_SIZE      0x4000\n#define MN1_AAP_HEADER_SIZE         4       /* Without total length field */\n#define MN1_AAP_HEADER_SIZE_FIRST   8       /* With total length field */\n\n/* AAP protocol version */\n#define MN1_AAP_VERSION_MAJOR       1\n#define MN1_AAP_VERSION_MINOR       6\n\n/* Video configuration we advertise to the phone */\n#define MN1_AAP_VIDEO_CODEC         3       /* MEDIA_CODEC_VIDEO_H264_BP */\n#define MN1_AAP_VIDEO_RESOLUTION    1       /* VIDEO_800x480 */\n#define MN1_AAP_VIDEO_FPS           2       /* VIDEO_FPS_30 */\n\n/* =========================================================================\n * CUSTOM COMPANION PROTOCOL (Path B - MJPEG)\n * ========================================================================= */\n\n/*\n * Custom frame header (8 bytes, minimal overhead):\n *\n * Offset  Size  Field\n * 0       2     Magic: 0xAA55\n * 2       1     Frame type (0x01=video, 0x02=touch_ack, 0x03=config)\n * 3       1     Flags (bit0=keyframe, always 1 for MJPEG)\n * 4       4     Payload length (little-endian, max 256KB)\n *\n * Total overhead per frame: 8 bytes. At 15 FPS = 120 bytes/sec.\n */\n#define MN1_CUSTOM_MAGIC            0xAA55\n#define MN1_CUSTOM_FRAME_VIDEO      0x01\n#define MN1_CUSTOM_FRAME_TOUCH      0x02\n#define MN1_CUSTOM_FRAME_CONFIG     0x03\n#define MN1_CUSTOM_FRAME_TOUCH_ACK  0x04\n#define MN1_CUSTOM_HEADER_SIZE      8\n\n/* =========================================================================\n * MEMORY BUDGET\n * ========================================================================= */\n\n/*\n * Total available: ~256 MB\n * WinCE kernel + drivers: ~40-60 MB (estimated)\n * MediaNav native processes: ~30-50 MB (estimated)\n * Available for our app: ~150-180 MB (conservative: 150 MB)\n *\n * Our budget (targeting < 8 MB total):\n *\n * Component              Bytes        Notes\n * ---------------------------------------------------------\n * USB RX buffers (x2)    131,072      64KB * 2 double-buffer\n * USB TX buffer           4,096       Touch events\n * Decode workspace       307,200      400*240*2 (half-res RGB565) + scratch\n * Display framebuffer    768,000      800*480*2 RGB565 (if we manage our own)\n * JPEG decode tables      4,096       Huffman + quantization tables\n * IDCT row buffer            512      One 8-pixel row workspace\n * Ring buffer (USB->decode) 131,072   64KB ring for frame assembly\n * TLS buffers (AAP only)  32,768      Only if using standard AAP\n * Stack                   65,536      64KB stack\n * Code (.text)           ~200,000     Estimated ~200KB for all code\n * ---------------------------------------------------------\n * TOTAL                  ~1.6 MB      Well within budget\n *\n * NOTE: If DirectDraw manages the framebuffer in VRAM, we save 750KB.\n */\n\n#define MN1_STACK_SIZE              (64 * 1024)\n\n/* =========================================================================\n * THREADING MODEL\n * ========================================================================= */\n\n/*\n * Two threads only (minimize context switch overhead):\n *\n * Thread 1 (USB I/O): Handles USB bulk reads/writes.\n *   - Reads JPEG frames into ring buffer\n *   - Sends touch events to phone\n *   - Priority: THREAD_PRIORITY_ABOVE_NORMAL\n *\n * Thread 2 (Decode + Render): Main loop.\n *   - Reads complete frames from ring buffer\n *   - Decodes JPEG -> RGB565\n *   - Blits to display\n *   - Reads touch input, queues for Thread 1\n *   - Priority: THREAD_PRIORITY_HIGHEST\n */\n#define MN1_THREAD_PRIORITY_USB     THREAD_PRIORITY_ABOVE_NORMAL\n#define MN1_THREAD_PRIORITY_RENDER  THREAD_PRIORITY_HIGHEST\n\n/* =========================================================================\n * DEBUG / LOGGING\n * ========================================================================= */\n\n/*\n * Log levels:\n *   0 = OFF (release builds, saves ~5KB code + branch prediction slots)\n *   1 = ERROR only\n *   2 = ERROR + WARN\n *   3 = ERROR + WARN + INFO (debug builds)\n */\n#ifndef MN1_LOG_LEVEL\n#define MN1_LOG_LEVEL               0\n#endif\n\n/* Log to file on Storage Card (slow!) or serial port (fast) */\n#define MN1_LOG_TARGET_NONE         0\n#define MN1_LOG_TARGET_FILE         1\n#define MN1_LOG_TARGET_SERIAL       2\n\n#ifndef MN1_LOG_TARGET\n#define MN1_LOG_TARGET              MN1_LOG_TARGET_NONE\n#endif\n\n#define MN1_LOG_FILE_PATH           L\"\\\\Storage Card\\\\mn1aa.log\"\n\n/* =========================================================================\n * AOA ACCESSORY IDENTITY STRINGS\n * ========================================================================= */\n\n#define MN1_AOA_MANUFACTURER        \"MediaNav\"\n#define MN1_AOA_MODEL               \"MN1-AA-Client\"\n#define MN1_AOA_DESCRIPTION         \"MediaNav Android Auto Client\"\n#define MN1_AOA_VERSION             \"1.0\"\n#define MN1_AOA_URI                 \"\"\n#define MN1_AOA_SERIAL              \"MN1-001\"\n\n#endif /* MN1AA_CONFIG_H */\n",
+        "lang": "c",
+        "size": 11086,
+        "lines": 305
+      }
+    },
+    {
+      "test_name": "File Content - Main Source Code",
+      "endpoint": "api/project/file?path=src/main.c",
+      "status_code": 200,
+      "expected_status": 200,
+      "success": true,
+      "content_errors": [],
+      "response_size": 14793,
+      "response_data": {
+        "path": "src/main.c",
+        "content": "/*\n * main.c - MN1 Android Auto Client Entry Point\n *\n * Windows CE 6.0 / MIPS (Alchemy Au1320)\n *\n * This is the main application loop implementing the Companion MJPEG\n * path (Path B). The standard AAP path (Path A) can be enabled via\n * config.h but is DOA for video on this hardware.\n *\n * APPLICATION FLOW:\n *\n *   1. Initialize display (fullscreen 800x480 window)\n *   2. Initialize USB Host (switch OTG to Host mode if needed)\n *   3. Wait for Android phone connection\n *   4. Perform AOA handshake (switch phone to accessory mode)\n *   5. Send configuration (resolution, quality, FPS)\n *   6. Enter main loop:\n *      a. USB Thread: Read JPEG frames from phone -> ring buffer\n *      b. Main Thread: Decode JPEG -> RGB565, blit to display\n *      c. Main Thread: Capture touch events -> send to phone\n *   7. Cleanup on exit\n *\n * THREADING MODEL:\n *   Main thread:  Window messages + JPEG decode + display blit\n *   USB thread:   USB bulk I/O (read JPEG, send touch)\n *\n * The main thread does decode + render because it owns the window\n * handle needed for GDI/DirectDraw operations on WinCE.\n */\n\n#include \"config.h\"\n#include \"types.h\"\n#include \"usb/usb_host.h\"\n#include \"usb/aoa_handshake.h\"\n#include \"protocol/custom_protocol.h\"\n#include \"video/mjpeg_decoder.h\"\n#include \"display/display.h\"\n#include \"input/touch_input.h\"\n#include \"util/ring_buffer.h\"\n#include \"util/debug_log.h\"\n\n/* =========================================================================\n * GLOBAL APPLICATION STATE\n * ========================================================================= */\n\nstatic mn1_app_state_t g_app;\n\n/* Decode output buffer (RGB565, sized for decode resolution) */\nstatic uint16_t g_decodeBuffer[MN1_DECODE_WIDTH * MN1_DECODE_HEIGHT];\n\n/* USB receive buffers (double-buffered) */\nstatic uint8_t g_usbRxBuf0[MN1_USB_RX_BUFFER_SIZE];\nstatic uint8_t g_usbRxBuf1[MN1_USB_RX_BUFFER_SIZE];\n\n/* MJPEG decoder context */\nstatic mjpeg_context_t g_mjpegCtx;\n\n/* Touch event queue (simple, single-slot - we only need latest event) */\nstatic volatile mn1_touch_event_t g_pendingTouch;\nstatic volatile mn1_bool_t        g_touchPending = FALSE;\n\n/* =========================================================================\n * TOUCH CALLBACK\n *\n * Called from the main thread's message pump when a touch event occurs.\n * We store the event and let the USB thread send it.\n * ========================================================================= */\n\nstatic void on_touch_event(const mn1_touch_event_t* pEvent, void* pUserData)\n{\n    mn1_touch_event_t scaled = *pEvent;\n\n    /* Scale display coordinates to phone coordinates */\n    mn1_touch_scale(&scaled, MN1_DECODE_WIDTH, MN1_DECODE_HEIGHT);\n\n    /* Store for USB thread to send */\n    g_pendingTouch = scaled;\n    g_touchPending = TRUE;\n\n    (void)pUserData;\n}\n\n/* =========================================================================\n * USB I/O THREAD\n *\n * Runs continuously reading JPEG frames from USB and writing touch events.\n * ========================================================================= */\n\nstatic DWORD WINAPI usb_thread_proc(LPVOID lpParam)\n{\n    mn1_app_state_t* pApp = (mn1_app_state_t*)lpParam;\n    uint8_t* rxBuf = g_usbRxBuf0;  /* Active receive buffer */\n    uint32_t dwActual;\n    mn1_result_t result;\n\n    MN1_LOG_INFO(L\"USB thread started\");\n\n    while (pApp->bRunning) {\n\n        /* ---- Send pending touch event ---- */\n        if (g_touchPending) {\n            mn1_touch_event_t event = g_pendingTouch;\n            g_touchPending = FALSE;\n\n            result = mn1_custom_send_touch(&pApp->usb, &event);\n            if (result != MN1_OK) {\n                MN1_LOG_WARN(L\"Touch send failed: %d\", result);\n            }\n        }\n\n        /* ---- Read next JPEG frame ---- */\n        result = mn1_custom_read_video_frame(\n            &pApp->usb,\n            rxBuf,\n            MN1_USB_RX_BUFFER_SIZE,\n            &dwActual\n        );\n\n        if (result == MN1_OK && dwActual > 0) {\n            /* Write JPEG data to ring buffer for decode thread */\n            uint32_t written;\n\n            /* Write frame length first (4 bytes LE) */\n            uint8_t lenBuf[4];\n            mn1_write_le32(lenBuf, dwActual);\n\n            written = mn1_ring_write(&pApp->rxRing, lenBuf, 4);\n            if (written == 4) {\n                written = mn1_ring_write(&pApp->rxRing, rxBuf, dwActual);\n                if (written < dwActual) {\n                    /* Ring buffer full - frame dropped */\n                    pApp->dwDropCount++;\n                    MN1_LOG_WARN(L\"Frame dropped (ring full), total drops: %d\",\n                                 pApp->dwDropCount);\n                }\n            } else {\n                pApp->dwDropCount++;\n            }\n\n            /* Signal decode thread that data is available */\n            SetEvent(pApp->hFrameReady);\n\n        } else if (result == MN1_ERR_TIMEOUT) {\n            /* No data available, just loop */\n            Sleep(1);\n        } else {\n            /* USB error */\n            MN1_LOG_ERROR(L\"USB read error: %d\", result);\n            Sleep(100); /* Back off on errors */\n        }\n    }\n\n    MN1_LOG_INFO(L\"USB thread exiting\");\n    return 0;\n}\n\n/* =========================================================================\n * MAIN DECODE + RENDER LOOP\n * ========================================================================= */\n\nstatic void main_loop(mn1_app_state_t* pApp)\n{\n    uint8_t jpegBuf[MN1_USB_RX_BUFFER_SIZE];\n    uint32_t dwFpsCounter = 0;\n    uint32_t dwFpsTick = mn1_get_tick_ms();\n    mjpeg_stats_t stats;\n\n    MN1_LOG_INFO(L\"Entering main decode/render loop\");\n\n    while (pApp->bRunning) {\n\n        /* Process Windows messages (touch events, WM_QUIT, etc.) */\n        if (mn1_touch_process_messages()) {\n            MN1_LOG_INFO(L\"WM_QUIT received\");\n            pApp->bRunning = FALSE;\n            break;\n        }\n\n        /* Wait for frame data (with timeout for message processing) */\n        WaitForSingleObject(pApp->hFrameReady, 16); /* ~60Hz poll rate */\n\n        /* Read frame from ring buffer */\n        if (mn1_ring_readable(&pApp->rxRing) >= 4) {\n            uint8_t lenBuf[4];\n            uint32_t frameLen;\n\n            /* Read frame length prefix */\n            if (mn1_ring_peek(&pApp->rxRing, lenBuf, 4) == 4) {\n                frameLen = mn1_read_le32(lenBuf);\n\n                if (frameLen > 0 && frameLen <= MN1_USB_RX_BUFFER_SIZE &&\n                    mn1_ring_readable(&pApp->rxRing) >= 4 + frameLen)\n                {\n                    /* Consume length prefix */\n                    mn1_ring_skip(&pApp->rxRing, 4);\n\n                    /* Read JPEG data */\n                    mn1_ring_read(&pApp->rxRing, jpegBuf, frameLen);\n\n                    /* ---- DECODE JPEG ---- */\n                    mn1_result_t result = mjpeg_decode_frame(\n                        &g_mjpegCtx,\n                        jpegBuf,\n                        frameLen,\n                        &stats\n                    );\n\n                    if (result == MN1_OK) {\n                        /* ---- BLIT TO DISPLAY ---- */\n                        mn1_display_blit(\n                            g_decodeBuffer,\n                            MN1_DECODE_WIDTH,\n                            MN1_DECODE_HEIGHT\n                        );\n\n                        pApp->dwFrameCount++;\n                        dwFpsCounter++;\n\n                        /* Update FPS every second */\n                        {\n                            uint32_t now = mn1_get_tick_ms();\n                            if (now - dwFpsTick >= 1000) {\n                                pApp->dwFps = dwFpsCounter;\n                                dwFpsCounter = 0;\n                                dwFpsTick = now;\n\n                                MN1_LOG_INFO(\n                                    L\"FPS=%d, decode=%dms, frames=%d, drops=%d\",\n                                    pApp->dwFps,\n                                    stats.dwDecodeUs / 1000,\n                                    pApp->dwFrameCount,\n                                    pApp->dwDropCount);\n                            }\n                        }\n\n                    } else {\n                        MN1_LOG_WARN(L\"JPEG decode failed: %d\", result);\n                    }\n                }\n            }\n        }\n    }\n}\n\n/* =========================================================================\n * WINMAIN ENTRY POINT\n * ========================================================================= */\n\nint WINAPI WinMain(\n    HINSTANCE hInstance,\n    HINSTANCE hPrevInstance,\n    LPWSTR    lpCmdLine,\n    int       nCmdShow)\n{\n    mn1_result_t result;\n\n    (void)hPrevInstance;\n    (void)lpCmdLine;\n    (void)nCmdShow;\n\n    /* Initialize global state */\n    memset(&g_app, 0, sizeof(g_app));\n    g_app.bRunning = TRUE;\n\n    /* ---- Step 1: Initialize logging ---- */\n    mn1_log_init();\n    MN1_LOG_INFO(L\"========================================\");\n    MN1_LOG_INFO(L\"  MN1 Android Auto Client v1.0\");\n    MN1_LOG_INFO(L\"  Mode: %s\",\n#if MN1_OPERATING_MODE == MN1_MODE_COMPANION_MJPEG\n        L\"Companion MJPEG (Path B)\"\n#else\n        L\"Standard AAP (Path A)\"\n#endif\n    );\n    MN1_LOG_INFO(L\"  Decode: %dx%d (scale %dx)\",\n                 MN1_DECODE_WIDTH, MN1_DECODE_HEIGHT, MN1_DECODE_SCALE);\n    MN1_LOG_INFO(L\"========================================\");\n\n    /* ---- Step 2: Initialize display ---- */\n    result = mn1_display_init(hInstance);\n    if (result != MN1_OK) {\n        MN1_LOG_ERROR(L\"Display init failed: %d\", result);\n        MessageBox(NULL, L\"Display init failed\", L\"MN1AA Error\", MB_OK);\n        goto cleanup;\n    }\n\n    /* ---- Step 3: Initialize MJPEG decoder ---- */\n    result = mjpeg_init(&g_mjpegCtx, g_decodeBuffer, MN1_DECODE_WIDTH);\n    if (result != MN1_OK) {\n        MN1_LOG_ERROR(L\"MJPEG decoder init failed: %d\", result);\n        goto cleanup;\n    }\n\n    /* ---- Step 4: Initialize ring buffer ---- */\n    result = mn1_ring_init(&g_app.rxRing, 128 * 1024); /* 128KB ring */\n    if (result != MN1_OK) {\n        MN1_LOG_ERROR(L\"Ring buffer init failed: %d\", result);\n        goto cleanup;\n    }\n\n    /* ---- Step 5: Initialize USB ---- */\n    result = mn1_usb_init();\n    if (result != MN1_OK) {\n        MN1_LOG_ERROR(L\"USB init failed: %d\", result);\n        MessageBox(NULL, L\"USB init failed. Use OTG cable?\",\n                   L\"MN1AA Error\", MB_OK);\n        goto cleanup;\n    }\n\n    /* ---- Step 6: Wait for phone connection ---- */\n    MN1_LOG_INFO(L\"Waiting for phone connection...\");\n    /* Display \"Waiting...\" on screen */\n    {\n        HDC hDC = GetDC(mn1_display_get_hwnd());\n        if (hDC) {\n            RECT rc = { 0, 0, MN1_DISPLAY_WIDTH, MN1_DISPLAY_HEIGHT };\n            SetBkColor(hDC, RGB(0, 0, 0));\n            SetTextColor(hDC, RGB(255, 255, 255));\n            DrawText(hDC, L\"Connect Android phone via USB...\",\n                     -1, &rc, DT_CENTER | DT_VCENTER | DT_SINGLELINE);\n            ReleaseDC(mn1_display_get_hwnd(), hDC);\n        }\n    }\n\n    result = mn1_usb_wait_device(30000, &g_app.usb); /* 30 sec timeout */\n    if (result != MN1_OK) {\n        MN1_LOG_ERROR(L\"No phone detected: %d\", result);\n        MessageBox(NULL, L\"No phone detected. Check USB connection.\",\n                   L\"MN1AA Error\", MB_OK);\n        goto cleanup;\n    }\n\n    /* ---- Step 7: AOA Handshake ---- */\n    MN1_LOG_INFO(L\"Starting AOA handshake...\");\n    result = mn1_aoa_handshake(&g_app.usb);\n    if (result != MN1_OK) {\n        MN1_LOG_ERROR(L\"AOA handshake failed: %d\", result);\n        MessageBox(NULL, L\"AOA handshake failed. Is Android Auto installed?\",\n                   L\"MN1AA Error\", MB_OK);\n        goto cleanup;\n    }\n\n    /* ---- Step 8: Initialize custom protocol & send config ---- */\n#if MN1_OPERATING_MODE == MN1_MODE_COMPANION_MJPEG\n    {\n        mn1_config_msg_t config;\n\n        result = mn1_custom_init(&g_app.usb);\n        if (result != MN1_OK) goto cleanup;\n\n        config.wWidth    = MN1_DECODE_WIDTH;\n        config.wHeight   = MN1_DECODE_HEIGHT;\n        config.bQuality  = MN1_JPEG_DEFAULT_QUALITY;\n        config.bMaxFps   = 15;\n        config.bReserved[0] = 0;\n        config.bReserved[1] = 0;\n\n        result = mn1_custom_send_config(&g_app.usb, &config);\n        if (result != MN1_OK) {\n            MN1_LOG_ERROR(L\"Config send failed: %d\", result);\n            goto cleanup;\n        }\n    }\n#endif\n\n    /* ---- Step 9: Initialize touch input ---- */\n    result = mn1_touch_init(\n        mn1_display_get_hwnd(),\n        on_touch_event,\n        &g_app\n    );\n    if (result != MN1_OK) {\n        MN1_LOG_WARN(L\"Touch init failed - continuing without touch\");\n    }\n\n    /* ---- Step 10: Create synchronization events ---- */\n    g_app.hFrameReady = CreateEvent(NULL, FALSE, FALSE, NULL);\n    g_app.hUsbReady   = CreateEvent(NULL, FALSE, TRUE, NULL);\n\n    /* ---- Step 11: Start USB I/O thread ---- */\n    g_app.hUsbThread = CreateThread(\n        NULL,\n        MN1_STACK_SIZE,\n        usb_thread_proc,\n        &g_app,\n        0,\n        NULL\n    );\n\n    if (!g_app.hUsbThread) {\n        MN1_LOG_ERROR(L\"Failed to create USB thread: %d\", GetLastError());\n        goto cleanup;\n    }\n\n    CeSetThreadPriority(g_app.hUsbThread, MN1_THREAD_PRIORITY_USB);\n    CeSetThreadPriority(GetCurrentThread(), MN1_THREAD_PRIORITY_RENDER);\n\n    /* ---- Step 12: Main decode + render loop ---- */\n    MN1_LOG_INFO(L\"Starting main loop\");\n    main_loop(&g_app);\n\n    /* ---- Cleanup ---- */\ncleanup:\n    MN1_LOG_INFO(L\"Shutting down...\");\n\n    g_app.bRunning = FALSE;\n\n    /* Wait for USB thread to exit */\n    if (g_app.hUsbThread) {\n        SetEvent(g_app.hFrameReady); /* Wake it up */\n        WaitForSingleObject(g_app.hUsbThread, 5000);\n        CloseHandle(g_app.hUsbThread);\n    }\n\n    if (g_app.hFrameReady) CloseHandle(g_app.hFrameReady);\n    if (g_app.hUsbReady)   CloseHandle(g_app.hUsbReady);\n\n    mn1_touch_shutdown();\n    mn1_usb_close(&g_app.usb);\n    mn1_usb_shutdown();\n    mn1_ring_free(&g_app.rxRing);\n    mn1_display_shutdown();\n\n    MN1_LOG_INFO(L\"Total frames: %d, dropped: %d\",\n                 g_app.dwFrameCount, g_app.dwDropCount);\n    MN1_LOG_INFO(L\"Goodbye.\");\n    mn1_log_shutdown();\n\n    return 0;\n}\n",
+        "lang": "c",
+        "size": 14190,
+        "lines": 432
+      }
+    },
+    {
+      "test_name": "File Content - Performance Documentation",
+      "endpoint": "api/project/file?path=docs/03_PERFORMANCE_ANALYSIS.md",
+      "status_code": 200,
+      "expected_status": 200,
+      "success": true,
+      "content_errors": [],
+      "response_size": 9070,
+      "response_data": {
+        "path": "docs/03_PERFORMANCE_ANALYSIS.md",
+        "content": "# 03 - Performance Analysis & Memory Budget\n\n## The Brutal Truth\n\nThe Alchemy Au1320 at 667 MHz is a **1990s-era MIPS core** running at a\nclock speed that was mid-range in 2009 when the chip was announced.\nHere's what we're working with:\n\n| Spec | Value | Impact |\n|------|-------|--------|\n| Clock | 667 MHz | ~667M simple instructions/sec |\n| Pipeline | 5-stage in-order | No out-of-order execution, no speculation |\n| Issue width | Single-issue | ONE instruction per clock maximum |\n| I-Cache | 16 KB (4-way) | Hot loop MUST fit in 16KB |\n| D-Cache | 16 KB (4-way) | Working set MUST fit in 16KB |\n| Multiply | 1 cycle (32-bit result) | Good for fixed-point math |\n| Divide | ~32 cycles | Avoid at all costs in inner loops |\n| FPU | Negligible | All math must be integer/fixed-point |\n| SIMD | None confirmed | No vectorization possible |\n| Memory BW | DDR2-667, 16-bit bus | ~1.3 GB/s peak, ~600 MB/s sustained |\n\n---\n\n## JPEG Decode Cycle Budget\n\n### Target: 400x240 @ 15 FPS (Half Resolution)\n\n```\nAvailable cycles per frame:\n  667,000,000 cycles/sec / 15 FPS = 44,466,666 cycles/frame\n\nImage size: 400 x 240 = 96,000 pixels\n\nFor 4:2:0 subsampling:\n  MCU = 16x16 pixels\n  Blocks per MCU = 6 (4Y + 1Cb + 1Cr)\n  MCUs = (400/16) * (240/16) = 25 * 15 = 375 MCUs\n  Total blocks = 375 * 6 = 2,250 blocks\n\nCycles per block budget:\n  44,466,666 / 2,250 = 19,763 cycles per block\n\nThis is GENEROUS. Here's the actual cost breakdown:\n```\n\n### Per-Block Cycle Estimates\n\n| Stage | Estimated Cycles | % of Budget | Notes |\n|-------|-----------------|-------------|-------|\n| Huffman decode (VLD) | ~1,500 | 7.6% | 8-bit lookup fast path |\n| Dequantize | ~200 | 1.0% | 64 multiplies (fused with IDCT) |\n| IFAST IDCT | ~2,500 | 12.6% | AAN algorithm, 16-bit |\n| YCbCr->RGB565 | ~500 | 2.5% | Table lookup, no multiply |\n| Bitstream refill | ~300 | 1.5% | Byte stuffing check |\n| **Block total** | **~5,000** | **25.3%** | |\n| Overhead (memcpy, loop) | ~500 | 2.5% | |\n| **Total per block** | **~5,500** | **27.8%** | |\n\n```\nTotal decode time: 5,500 * 2,250 = 12,375,000 cycles\nAt 667 MHz: 12,375,000 / 667,000,000 = 18.6 ms per frame\n\nMARGIN: 44.5ms budget - 18.6ms decode = 25.9ms for USB + display\n```\n\n### Result: 400x240 @ 15 FPS is ACHIEVABLE\n\nThe numbers show ~19ms decode time with ~26ms margin for USB I/O and display blit.\nAt Q50, JPEG data size is ~12-15 KB per frame, well within USB bandwidth.\n\n---\n\n### What About 800x480 @ 15 FPS? (Full Resolution)\n\n```\nMCUs = (800/16) * (480/16) = 50 * 30 = 1,500 MCUs\nBlocks = 1,500 * 6 = 9,000 blocks\nDecode time: 5,500 * 9,000 = 49,500,000 cycles = 74.2 ms\n\nBudget per frame: 66.7 ms (at 15 FPS)\n\nRESULT: DOES NOT FIT. 74.2ms > 66.7ms budget.\n```\n\nFull resolution at 15 FPS is **marginally impossible**. Options:\n- Drop to 10 FPS (100ms budget): fits with 26ms margin\n- Use IFAST IDCT with aggressive shortcuts: might squeeze 12 FPS\n- Decode at 400x240 and upscale 2x (recommended approach)\n\n---\n\n## H.264 Decode: Why It's DOA\n\nFor comparison, H.264 Baseline at 800x480@30fps:\n\n| Component | Cycles | Notes |\n|-----------|--------|-------|\n| CAVLC entropy decode | ~50,000/MB | Much more complex than JPEG Huffman |\n| Inverse transform (4x4) | ~3,000/MB | Similar to JPEG but more MBs |\n| Motion compensation | ~40,000/MB | NO EQUIVALENT IN JPEG. This is the killer. |\n| Deblocking filter | ~20,000/MB | Per-macroblock edge filtering |\n| **Total per macroblock** | **~113,000** | |\n\n```\n800x480 at 16x16 MBs = 1,500 MBs\nPer frame: 113,000 * 1,500 = 169,500,000 cycles = 254 ms\n\nAt 30 FPS budget: 33.3 ms\nRESULT: 7.6x OVER BUDGET. Actual FPS: ~3.9\n\nEven at 15 FPS (66.7ms budget): 3.8x over budget -> ~3.9 FPS\nEven at 400x240 (375 MBs): 42,375,000 cycles = 63.5ms -> barely 15 FPS\n  But add the overhead of H.264 framing and NAL parsing -> 10-12 FPS\n```\n\n**Conclusion**: H.264 software decode achieves 3-5 FPS at best. MJPEG wins.\n\n---\n\n## Memory Budget\n\n### Total System Memory: 256 MB DDR2\n\n```\nEstimated OS + System Usage:\n  WinCE 6.0 kernel + drivers:     ~40 MB\n  MediaNav native processes:      ~40 MB  (GPS, radio, settings)\n  MediaNav UI framework:          ~30 MB  (Qt/WinCE GUI)\n  System buffers/caches:          ~20 MB\n  -----------------------------------------------\n  Available for our application:  ~126 MB (conservative)\n```\n\n### Our Application Memory Map\n\n| Component | Bytes | KB | Notes |\n|-----------|-------|----|-------|\n| **Code (.text)** | ~200,000 | 195 | All compiled code |\n| **Stack** | 65,536 | 64 | Main thread stack |\n| **USB thread stack** | 65,536 | 64 | USB I/O thread |\n| **USB RX buffer 0** | 65,536 | 64 | JPEG receive buffer |\n| **USB RX buffer 1** | 65,536 | 64 | Double buffer |\n| **USB TX buffer** | 4,096 | 4 | Touch event sends |\n| **Ring buffer** | 131,072 | 128 | USB -> decode FIFO |\n| **Decode buffer** | 192,000 | 188 | 400*240*2 RGB565 |\n| **MJPEG context** | ~3,500 | 3.4 | Quant + Huffman tables |\n| **Huffman lookups** | 2,560 | 2.5 | 4 tables * 256 * 2.5B avg |\n| **Color LUTs** | 2,048 | 2 | Cb/Cr -> RGB deltas |\n| **DCT block scratch** | 128 | 0.125 | 64 * int16_t |\n| **Display back buffer** | 768,000 | 750 | 800*480*2 (if SW managed) |\n| **Log buffer** | 1,024 | 1 | Debug log format buffer |\n| | | | |\n| **TOTAL** | **~1,566,000** | **~1,530** | **~1.5 MB** |\n\n### Cache Utilization Analysis\n\n```\n16 KB I-Cache:\n  Critical hot path (decode_block + IDCT + color_convert):\n    decode_block:    ~800 bytes\n    idct_ifast_mips: ~600 bytes\n    huff_decode_dc:  ~200 bytes\n    huff_decode_ac:  ~200 bytes\n    color_convert:   ~400 bytes (4:2:0 path only)\n    bits_refill:     ~100 bytes\n    --------------------------------\n    Total hot path:  ~2,300 bytes = 14.4% of I-cache\n    \n  VERDICT: Fits easily. No I-cache thrashing.\n\n16 KB D-Cache:\n  Per-block working set:\n    DCT block (64 * 2B):          128 bytes\n    Quant table (64 * 2B):        128 bytes\n    Huffman DC lookup (256B):     256 bytes\n    Huffman AC lookup (512B):     512 bytes\n    Bitstream buffer (~32B):       32 bytes\n    DC predictions (3 * 2B):        6 bytes\n    Color LUTs (if converting):  2,048 bytes\n    --------------------------------\n    Total hot data:              ~3,110 bytes = 19.4% of D-cache\n    \n  VERDICT: Fits well. Color LUTs are the biggest consumer.\n           Could split LUTs into hot/cold if needed.\n```\n\n---\n\n## USB Bandwidth Analysis\n\n```\nUSB 2.0 High Speed: 480 Mbit/s theoretical\nPractical throughput: ~35 MB/s for bulk transfers\n\nJPEG frame sizes (400x240):\n  Q30:  ~8 KB/frame\n  Q50:  ~15 KB/frame  (recommended)\n  Q70:  ~30 KB/frame\n\nAt Q50, 15 FPS:\n  15 * 15 KB = 225 KB/sec = 1.8 Mbit/s\n\nUSB utilization: 1.8 / 480 = 0.375%\n\nVERDICT: USB bandwidth is NOT a bottleneck at all.\n         We could stream 1080p MJPEG and still have USB bandwidth.\n```\n\n---\n\n## Bottleneck Summary\n\n```\n                    BOTTLENECK MAP\n    \n    USB Bandwidth  [====                              ]  0.4%\n    USB Latency    [==========                        ]  ~2ms per transfer\n    JPEG Decode    [==========================        ]  ~19ms (18.6ms @ 400x240)\n    Display Blit   [========                          ]  ~5ms (StretchDIBits)\n    Touch Latency  [=====                             ]  ~3ms (message + USB send)\n    Memory Usage   [==                                ]  1.5 MB / 126 MB\n    \n    CRITICAL PATH: JPEG Decode (IDCT + Huffman)\n    SECONDARY:     Display Blit (GDI StretchDIBits scaling)\n```\n\n---\n\n## Optimization Priorities\n\n| Priority | Optimization | Expected Gain |\n|----------|-------------|---------------|\n| P0 | IFAST IDCT (already implemented) | 40% faster than ISLOW |\n| P0 | All-zero block shortcut | 30-60% of blocks at Q50 |\n| P1 | 8-bit Huffman lookup | Eliminates tree traversal for 90%+ codes |\n| P1 | Color conversion LUTs | Eliminates 3 multiplies per pixel |\n| P2 | Half-resolution decode + 2x upscale | 4x fewer blocks to decode |\n| P2 | Fused dequantize + IDCT | Saves one pass over block data |\n| P3 | MIPS-specific: unrolled IDCT | Saves loop overhead |\n| P3 | Aligned memory access | Avoid unaligned load penalties |\n| P4 | Skip chroma decode for static areas | Saves 2/6 of block decodes |\n| P4 | Pre-process JPEG to remove byte stuffing | Removes branch from inner VLD loop |\n\n---\n\n## Realistic Performance Expectations\n\n| Resolution | Quality | FPS | Decode Time | Usability |\n|-----------|---------|-----|-------------|-----------|\n| 200x120 | Q30 | 25-30 | ~5ms | Very blocky but responsive |\n| 400x240 | Q50 | 15-20 | ~19ms | **Recommended sweet spot** |\n| 400x240 | Q70 | 12-15 | ~25ms | Good quality, acceptable FPS |\n| 800x480 | Q30 | 10-12 | ~55ms | Full res, low quality |\n| 800x480 | Q50 | 8-10 | ~74ms | Full res, borderline usable |\n| 800x480 | Q70 | 5-7 | ~100ms | Slideshow |\n",
+        "lang": "markdown",
+        "size": 8718,
+        "lines": 256
+      }
+    }
+  ]
+}
