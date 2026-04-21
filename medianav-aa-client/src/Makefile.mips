@@ -1,0 +1,123 @@
+# =============================================================================
+# Portable MIPS Build - GCC Cross-Compiler (Linux Host)
+# =============================================================================
+#
+# This Makefile compiles the MJPEG decoder core and test harness using
+# mipsel-linux-gnu-gcc. This proves the code compiles for MIPS and allows
+# testing under QEMU-mipsel.
+#
+# TARGETS:
+#   make -f Makefile.mips          -> Build MIPS ELF binary (runs under QEMU)
+#   make -f Makefile.mips test     -> Build + run JPEG decode benchmark
+#   make -f Makefile.mips pe       -> Attempt ELF-to-PE conversion
+#   make -f Makefile.mips clean
+#
+# =============================================================================
+
+CC       = mipsel-linux-gnu-gcc
+STRIP    = mipsel-linux-gnu-strip
+OBJCOPY  = mipsel-linux-gnu-objcopy
+OBJDUMP  = mipsel-linux-gnu-objdump
+READELF  = mipsel-linux-gnu-readelf
+QEMU     = qemu-mipsel-static
+
+BUILDDIR = ../build
+
+# MIPS32 flags matching Au1320 capabilities
+MIPS_FLAGS = -march=mips32 -mtune=mips32 -mabi=32 -mel -mno-mips16
+
+# Optimization flags (match what we'd use on WinCE)
+OPT_FLAGS = -O2 -fno-strict-aliasing -fomit-frame-pointer \
+            -funroll-loops -finline-functions
+
+# We compile with PORTABLE_BUILD to stub out WinCE-specific code
+CFLAGS = $(MIPS_FLAGS) $(OPT_FLAGS) \
+         -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable -Wno-unused-but-set-variable -Wno-unused-function \
+         -D_POSIX_C_SOURCE=199309L \
+         -DPORTABLE_BUILD \
+         -DMN1_LOG_LEVEL=3 \
+         -I. -Ivideo -Iutil -Iprotocol -Iusb -Iinput -Idisplay -Itls \
+         -static
+
+LDFLAGS = -static -lm
+
+# Source files (portable subset - no WinCE APIs)
+PORTABLE_SRC = \
+    video/mjpeg_decoder.c \
+    video/jpeg_idct_mips.c \
+    video/jpeg_huffman.c \
+    video/color_convert.c \
+    protocol/pb_lite.c \
+    protocol/custom_protocol_portable.c \
+    util/ring_buffer_portable.c \
+    util/debug_log_portable.c
+
+TEST_SRC = test_harness.c
+
+TARGET_ELF = $(BUILDDIR)/mn1aa_test_mips
+TARGET_PE  = $(BUILDDIR)/mn1aa.exe
+
+# =============================================================================
+# BUILD RULES
+# =============================================================================
+
+all: $(TARGET_ELF)
+
+$(BUILDDIR):
+	mkdir -p $(BUILDDIR)
+
+$(TARGET_ELF): $(PORTABLE_SRC) $(TEST_SRC) | $(BUILDDIR)
+	$(CC) $(CFLAGS) -o $@ $(TEST_SRC) $(PORTABLE_SRC) $(LDFLAGS)
+	$(STRIP) $@
+	@echo ""
+	@echo "=== MIPS ELF Binary Built ==="
+	@file $@
+	@ls -la $@
+	@echo ""
+	@echo "Run with: qemu-mipsel-static $@"
+
+# Run the JPEG decode benchmark under QEMU
+test: $(TARGET_ELF)
+	@echo "=== Running MJPEG Decode Benchmark under QEMU-mipsel ==="
+	$(QEMU) $(TARGET_ELF)
+
+# Disassembly (verify MIPS32 instructions)
+disasm: $(TARGET_ELF)
+	$(OBJDUMP) -d -M reg-names=numeric $(TARGET_ELF) | head -200
+
+# Show sections and sizes
+size: $(TARGET_ELF)
+	$(READELF) -S $(TARGET_ELF)
+	@echo ""
+	@mipsel-linux-gnu-size $(TARGET_ELF)
+
+# =============================================================================
+# PE CONVERSION (EXPERIMENTAL)
+#
+# WinCE executables are PE (Portable Executable) format.
+# We attempt to convert our MIPS ELF to a PE using objcopy.
+# This is EXPERIMENTAL and may not produce a fully bootable WinCE binary
+# because:
+# 1. WinCE PE has specific subsystem flags
+# 2. Import tables for coredll.dll are needed
+# 3. Entry point convention differs
+#
+# For a truly correct PE, you'd need the VS2005 linker or a custom
+# PE builder tool. This conversion is best-effort.
+# =============================================================================
+
+pe: $(TARGET_ELF) | $(BUILDDIR)
+	@echo "=== Experimental ELF-to-PE Conversion ==="
+	@echo "WARNING: This produces a structurally valid PE but may not"
+	@echo "run on WinCE without import table fixup."
+	$(OBJCOPY) -O pe-mips $(TARGET_ELF) $(TARGET_PE) 2>/dev/null || \
+	$(OBJCOPY) -O pei-mips $(TARGET_ELF) $(TARGET_PE) 2>/dev/null || \
+	python3 ../tools/elf2pe.py $(TARGET_ELF) $(TARGET_PE)
+	@echo ""
+	@file $(TARGET_PE) 2>/dev/null || true
+	@ls -la $(TARGET_PE) 2>/dev/null || true
+
+clean:
+	rm -rf $(BUILDDIR)
+
+.PHONY: all test disasm size pe clean
