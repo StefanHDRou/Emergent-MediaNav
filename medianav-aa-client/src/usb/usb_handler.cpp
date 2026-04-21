@@ -1522,11 +1522,82 @@ void usb_handler_shutdown(usb_device_state_t* pDev)
 
     memset(pDev, 0, sizeof(usb_device_state_t));
     MN1_LOG_INFO(L"  Shutdown complete.");
+
+    /* Graceful exit: bring MgrUSB.exe back so the factory radio
+     * regains USB Mass Storage functionality without requiring a
+     * full ECU reboot. Non-fatal if this fails. */
+    usb_handler_restart_mgrusb();
 }
 
 /* =========================================================================
  * LEGACY API COMPATIBILITY WRAPPER
  * ========================================================================= */
+
+/* Public wrappers for MgrUSB control, callable from main.cpp.
+ *
+ * NOTE: kill_mgrusb() is an internal static that already does the heavy
+ * lifting. We simply forward to it for a stable public ABI. */
+mn1_result_t usb_handler_kill_mgrusb(void)
+{
+    return kill_mgrusb();
+}
+
+/* Restart MgrUSB.exe after we're done with the USB hardware so the
+ * factory radio regains Mass Storage functionality on a clean exit.
+ *
+ * We probe the standard MediaNav install locations (the binary lives
+ * in the Windows directory or one of the flash partitions depending
+ * on firmware revision). */
+mn1_result_t usb_handler_restart_mgrusb(void)
+{
+    /* Candidate paths for MgrUSB.exe, in priority order */
+    static const WCHAR* mgrusbPaths[] = {
+        L"\\Windows\\MgrUSB.exe",
+        L"\\FlashDisk\\MgrUSB.exe",
+        L"\\FlashDisk\\System\\MgrUSB.exe",
+        L"\\Storage Card\\MgrUSB.exe",
+        L"\\Release\\MgrUSB.exe",
+        L"MgrUSB.exe",            /* Search PATH */
+        NULL
+    };
+
+    PROCESS_INFORMATION pi;
+    int i;
+
+    USB_LOG_PHASE("RESTART MgrUSB.exe");
+
+    for (i = 0; mgrusbPaths[i] != NULL; i++) {
+        MN1_LOG_INFO(L"  Trying CreateProcess('%s')...", mgrusbPaths[i]);
+
+        memset(&pi, 0, sizeof(pi));
+
+        /* WinCE CreateProcess signature: 6 args (no STARTUPINFO, no env) */
+        if (CreateProcess(
+                mgrusbPaths[i],
+                NULL,        /* lpCommandLine */
+                NULL,        /* lpProcessAttributes */
+                NULL,        /* lpThreadAttributes */
+                FALSE,       /* bInheritHandles */
+                0,           /* dwCreationFlags */
+                NULL,        /* lpEnvironment */
+                NULL,        /* lpCurrentDirectory */
+                NULL,        /* lpStartupInfo */
+                &pi))
+        {
+            MN1_LOG_INFO(L"  MgrUSB.exe restarted: PID=%d (path='%s')",
+                         pi.dwProcessId, mgrusbPaths[i]);
+            if (pi.hProcess) CloseHandle(pi.hProcess);
+            if (pi.hThread)  CloseHandle(pi.hThread);
+            return MN1_OK;
+        } else {
+            MN1_LOG_INFO(L"  '%s' not found (err=%d)",
+                         mgrusbPaths[i], GetLastError());
+        }
+    }
+
+    MN1_LOG_WARN(L"  Could not restart MgrUSB.exe (factory Mass Storage may not resume until reboot)");
+    return MN1_ERR_GENERIC;
+}
 
 void usb_handler_get_legacy_conn(
     const usb_device_state_t* pDev,

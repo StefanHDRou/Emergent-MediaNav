@@ -19,6 +19,39 @@ Create a custom, lightweight client for Android Auto that runs natively as an .e
 
 ## What's Been Implemented (Jan 2026)
 
+### User-Mode USB Host Stack Refactor (Feb 2026)
+- [x] `src/usb/usb_handler.cpp` + `.h` — user-mode USB host stack that
+      bypasses the stripped MediaNav WinCE PnP layer entirely
+      - Phase 0: programmatic MgrUSB.exe kill (ToolHelp snapshot +
+        TerminateProcess) and graceful restart on shutdown
+      - Phase 1a: HCD stream driver probe via `CreateFile("HCD1:")`,
+        falls through EHC1:/OHC1:/UHC1:/USB1:
+      - Phase 1b: Direct EHCI MMIO fallback — probes 3 Au1320/Au1xxx
+        physical base addresses, validates HCIVERSION signature, maps
+        via `VirtualAlloc` + `VirtualCopy(PAGE_NOCACHE|PAGE_PHYSICAL)`
+      - Phase 2: Full enumeration (port reset, GET_DESCRIPTOR ×2,
+        SET_ADDRESS, GET_DESCRIPTOR config, SET_CONFIGURATION,
+        bulk-endpoint discovery) with hex dumps
+      - Phase 3: AOA v2.0 handshake (GET_PROTOCOL → SEND_STRING ×6 →
+        optional SET_AUDIO_MODE → START → re-enumeration wait)
+      - Phase 4: HIGHEST-priority Video IN worker + ABOVE_NORMAL
+        Touch OUT worker, double-buffered receive, statistics counters
+      - Exposed public API: `usb_handler_kill_mgrusb()` and
+        `usb_handler_restart_mgrusb()` for surgical control
+- [x] `src/main.cpp` — C++ entry point using the new handler pipeline
+      (old `main.c` removed). Frame pump thread strips 8-byte custom
+      protocol header and pushes JPEG bytes into ring buffer for
+      MJPEG decoder.
+- [x] `src/Makefile` — rebuilt: C++ rules for main.cpp / usb_handler.cpp
+      (clmips auto-detects), legacy USB source entries removed,
+      `toolhelp.lib` added to link libs, `/EHs- /EHc- /GR-` flags for
+      a minimal C++ runtime.
+- [x] `src/usb/legacy/` — `usb_host.*` + `aoa_handshake.*` moved here
+      with README explaining why they are superseded but retained
+      for reference.
+- [x] Strict C++98/03 compatibility (no auto/nullptr/lambdas/range-for).
+- [x] No x86/ARM intrinsics. All code paths MIPS-clean.
+
 ### Documentation (6 files)
 - [x] README.md - Master project overview with brutal honesty about H.264 limitations
 - [x] 01_TOOLCHAIN_SETUP.md - VS2005 + Platform Builder CE 6.0 MIPS SDK guide

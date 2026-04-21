@@ -403,6 +403,24 @@ typedef struct {
  * ========================================================================= */
 
 /*
+ * Phase 0 helpers (exposed publicly so main.cpp can invoke them
+ * independently of the rest of the init pipeline if needed).
+ *
+ * usb_handler_kill_mgrusb():
+ *   Enumerate running processes and terminate any instance of
+ *   MgrUSB.exe (the MediaNav background process that hogs the USB
+ *   port for Mass Storage). Safe to call multiple times.
+ *
+ * usb_handler_restart_mgrusb():
+ *   Re-launch MgrUSB.exe after our app releases the USB hardware.
+ *   Called automatically by usb_handler_shutdown() for graceful exit,
+ *   so the factory radio functionality (USB stick reading) is
+ *   restored. Probes common install locations on MediaNav.
+ */
+mn1_result_t usb_handler_kill_mgrusb(void);
+mn1_result_t usb_handler_restart_mgrusb(void);
+
+/*
  * Phase 1: Initialization
  * - Kill MgrUSB.exe
  * - Probe for USB host access (HCD stream or EHCI direct)

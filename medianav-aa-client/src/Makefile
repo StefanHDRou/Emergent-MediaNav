@@ -14,9 +14,11 @@
 #   - MediaNav MIPS SDK installed (or generic MIPS WinCE 6.0 SDK)
 #   - Run from VS2005 Command Prompt with SDK paths set
 #
-# If using a custom SDK, set these environment variables:
-#   SDKROOT = C:\WINCE600\SDK\MediaNav   (path to your SDK)
-#
+# NOTE (C++ sources):
+#   - main.cpp and usb/usb_handler.cpp are C++98/03 translation units.
+#     clmips.exe auto-selects the C++ front-end based on the .cpp
+#     extension (no /TP switch needed).
+#   - Legacy C USB files live under usb/legacy/ and are NOT built.
 # =============================================================================
 
 # --- Configuration -----------------------------------------------------------
@@ -25,10 +27,6 @@ CFG=DEBUG
 !ENDIF
 
 # --- Toolchain ---------------------------------------------------------------
-# These are set by the VS2005/Platform Builder environment.
-# The MIPS cross-compiler is clmips.exe (or cl.exe with MIPS target).
-# If not in PATH, set full paths here.
-
 CC      = clmips.exe
 LINK    = link.exe
 RC      = rc.exe
@@ -37,20 +35,14 @@ RC      = rc.exe
 TARGET_NAME = mn1aa
 TARGET_EXE  = $(TARGET_NAME).exe
 
-# --- SDK/Include Paths -------------------------------------------------------
-# Platform Builder sets these via environment. Override if needed.
-# CESYSGEN, _WINCEROOT, _FLATRELEASEDIR are PB env vars.
-
-# Standard WinCE 6.0 includes (set by SDK installer)
-WINCE_INC = $(INCLUDE)
-WINCE_LIB = $(LIB)
-
 # --- Source Files ------------------------------------------------------------
-MAIN_SRC = main.c
+# main.cpp is the C++ entry point. Everything else still C.
+MAIN_SRC_CPP = main.cpp
 
-USB_SRC = \
-    usb\usb_host.c \
-    usb\aoa_handshake.c
+# usb_handler.cpp is the user-mode USB host stack (HCD1: / EHCI direct).
+# Legacy usb_host.c and aoa_handshake.c are excluded from the build on
+# purpose - they live under usb/legacy/ for reference only.
+USB_SRC_CPP = usb\usb_handler.cpp
 
 PROTOCOL_SRC = \
     protocol\aap_framing.c \
@@ -78,18 +70,16 @@ UTIL_SRC = \
     util\ring_buffer.c \
     util\debug_log.c
 
-ALL_SRC = $(MAIN_SRC) $(USB_SRC) $(PROTOCOL_SRC) $(VIDEO_SRC) \
-          $(DISPLAY_SRC) $(INPUT_SRC) $(TLS_SRC) $(UTIL_SRC)
+ALL_CPP_SRC = $(MAIN_SRC_CPP) $(USB_SRC_CPP)
+ALL_C_SRC   = $(PROTOCOL_SRC) $(VIDEO_SRC) $(DISPLAY_SRC) \
+              $(INPUT_SRC) $(TLS_SRC) $(UTIL_SRC)
 
 # --- Object Files (auto-generated from sources) -----------------------------
-# NMAKE doesn't have patsubst, so we list objects in a flat output dir
-
 OBJDIR = obj\$(CFG)
 
 OBJECTS = \
     $(OBJDIR)\main.obj \
-    $(OBJDIR)\usb_host.obj \
-    $(OBJDIR)\aoa_handshake.obj \
+    $(OBJDIR)\usb_handler.obj \
     $(OBJDIR)\aap_framing.obj \
     $(OBJDIR)\aap_service.obj \
     $(OBJDIR)\pb_lite.obj \
@@ -111,6 +101,7 @@ OBJECTS = \
 #   /GS-  = Disable buffer security checks (saves cycles)
 #   /Gy   = Function-level linking (smaller binary)
 #   /W3   = Warning level 3
+#   /EHs- /EHc-  = Disable C++ exceptions (cheaper, no unwind tables)
 
 COMMON_CFLAGS = \
     /nologo \
@@ -126,34 +117,34 @@ COMMON_CFLAGS = \
     /I. \
     /Iusb /Iprotocol /Ivideo /Idisplay /Iinput /Itls /Iutil
 
+# C++-specific flags (exceptions/RTTI disabled to match the minimal CE runtime)
+CPP_EXTRA = /EHs- /EHc- /GR-
+
 !IF "$(CFG)" == "DEBUG"
 # Debug: No optimization, full debug info, logging enabled
-CFLAGS = $(COMMON_CFLAGS) /Od /Zi /DDEBUG /D_DEBUG /DMN1_LOG_LEVEL=3
-LDFLAGS = /DEBUG /NOLOGO
+CFLAGS   = $(COMMON_CFLAGS) /Od /Zi /DDEBUG /D_DEBUG /DMN1_LOG_LEVEL=3
+CPPFLAGS = $(CFLAGS) $(CPP_EXTRA)
+LDFLAGS  = /DEBUG /NOLOGO
 !ELSE
 # Release: Maximum optimization for speed
-#   /Ox  = Full optimization (/Ob2 /Og /Oi /Ot /Oy)
-#   /Os  = Favor small code (fallback if /Ot causes cache thrashing)
-#   /Ot  = Favor fast code
-#   /Ob2 = Inline any suitable function
-CFLAGS = $(COMMON_CFLAGS) /Ox /Ot /Ob2 /DNDEBUG /DMN1_LOG_LEVEL=0
-LDFLAGS = /RELEASE /NOLOGO /OPT:REF /OPT:ICF
+CFLAGS   = $(COMMON_CFLAGS) /Ox /Ot /Ob2 /DNDEBUG /DMN1_LOG_LEVEL=0
+CPPFLAGS = $(CFLAGS) $(CPP_EXTRA)
+LDFLAGS  = /RELEASE /NOLOGO /OPT:REF /OPT:ICF
 !ENDIF
 
 # --- Linker Flags ------------------------------------------------------------
-# WinCE subsystem, entry point for CE executables
-# Link against core WinCE libraries
-
+# toolhelp.lib required by usb_handler.cpp (CreateToolhelp32Snapshot
+# for MgrUSB.exe enumeration/termination).
 LIBS = \
     coredll.lib \
     corelibc.lib \
+    toolhelp.lib \
     ole32.lib \
     oleaut32.lib \
     uuid.lib \
     commctrl.lib \
     aygshell.lib \
-    ddraw.lib \
-    usbfn.lib
+    ddraw.lib
 
 LFLAGS = $(LDFLAGS) \
     /SUBSYSTEM:WINDOWSCE \
@@ -177,14 +168,15 @@ $(TARGET_EXE): $(OBJECTS)
     @echo ===== BUILD COMPLETE: $(TARGET_EXE) [$(CFG)] =====
     @echo.
 
-# --- Individual compilation rules -------------------------------------------
-# Each source -> obj mapping (NMAKE inference rules are limited for subdirs)
+# --- Explicit compile rules (NMAKE inference rules don't chain subdirs well) -
 
-{.}.c{$(OBJDIR)}.obj:
-    $(CC) $(CFLAGS) /c /Fo$@ $<
+$(OBJDIR)\main.obj: main.cpp
+    $(CC) $(CPPFLAGS) /c /Fo$@ main.cpp
 
-{usb\}.c{$(OBJDIR)}.obj:
-    $(CC) $(CFLAGS) /c /Fo$@ $<
+$(OBJDIR)\usb_handler.obj: usb\usb_handler.cpp
+    $(CC) $(CPPFLAGS) /c /Fo$@ usb\usb_handler.cpp
+
+# --- C source inference rules (one per subdirectory) ------------------------
 
 {protocol\}.c{$(OBJDIR)}.obj:
     $(CC) $(CFLAGS) /c /Fo$@ $<
